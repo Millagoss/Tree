@@ -1,6 +1,8 @@
 *,
 ::after,
 ::before {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -62,15 +64,4 @@ html {
 body {
   background: var(--backgroundColor);
   font-family: var(--bodyFont);
-  font-weight: 400;
-  line-height: 1.75;
-  color: var(--textColor);
-}
-
-button:disabled {
-  cursor: not-allowed;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
 }
