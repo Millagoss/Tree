@@ -8,13 +8,19 @@ const Header: React.FC = () => {
 
   const increaseZoom = () => {
     setZoom((prevZoom: number) => prevZoom + 25);
-    (document.body.style as any).zoom = `${zoom + 25}%`;
+    const mainSection: any = document.getElementById("main");
+    if (mainSection) {
+      mainSection.style.zoom = `${zoom + 25}%`;
+    }
   };
 
   const decreaseZoom = () => {
     if (zoom > 25) {
       setZoom((prevZoom: number) => prevZoom - 25);
-      (document.body.style as any).zoom = `${zoom - 25}%`;
+      const mainSection: any = document.getElementById("main");
+      if (mainSection) {
+        mainSection.style.zoom = `${zoom - 25}%`;
+      }
     }
   };
 
