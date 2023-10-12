@@ -65,3 +65,7 @@ body {
   background: var(--backgroundColor);
   font-family: var(--bodyFont);
 }
+
+::-webkit-scrollbar {
+  display: none;
+}

@@ -10,7 +10,8 @@ const Header: React.FC = () => {
     setZoom((prevZoom: number) => prevZoom + 25);
     const mainSection: any = document.getElementById("main");
     if (mainSection) {
-      mainSection.style.zoom = `${zoom + 25}%`;
+      mainSection.style.transform = `scale(${(zoom + 25) / 100})`;
+      mainSection.style.transformOrigin = "center";
     }
   };
 
@@ -19,8 +20,18 @@ const Header: React.FC = () => {
       setZoom((prevZoom: number) => prevZoom - 25);
       const mainSection: any = document.getElementById("main");
       if (mainSection) {
-        mainSection.style.zoom = `${zoom - 25}%`;
+        mainSection.style.transform = `scale(${(zoom - 25) / 100})`;
+        mainSection.style.transformOrigin = "center";
       }
+    }
+  };
+
+  const centerScreen = () => {
+    const mainSection = document.getElementById("main");
+    if (mainSection) {
+      mainSection.style.display = "flex";
+      mainSection.style.justifyContent = "center";
+      mainSection.style.alignItems = "center";
     }
   };
 
@@ -33,7 +44,7 @@ const Header: React.FC = () => {
       <div>
         <button>List View</button>
         <div className="icon-container">
-          <CursorIcon className="icon" />
+          <CursorIcon className="icon" onClick={centerScreen} />
         </div>
         <div className="zoom">
           <div className="icon-container" onClick={decreaseZoom}>
