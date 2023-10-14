@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
 import {
   AngleUp,
@@ -37,48 +37,6 @@ const Main = () => {
 
   const handleMouseUp = () => {
     setDragging(false);
-  };
-
-  const centerScreen = () => {
-    const mainSection = document.getElementById("main");
-    const box = document.getElementById("box");
-    if (mainSection) {
-      const width = mainSection.offsetWidth / 2 - 100;
-      const height = mainSection.offsetHeight;
-
-      if (box) {
-        box.style.transition = `0.2s linear all`;
-        setOffset({ x: 0, y: 0 });
-        setPosition({ x: width, y: height });
-        setDragging(false);
-      }
-    }
-  };
-
-  const movement = (dir: string) => {
-    const box = document.getElementById("box");
-    if (!box) return;
-
-    switch (dir) {
-      case "up": {
-        box.style.transform = "translateX(-20)";
-        break;
-      }
-      case "down": {
-        box.style.transform = "translateX(20)";
-        break;
-      }
-      case "right": {
-        box.style.transform = "translateX(-20)";
-        break;
-      }
-      case "left": {
-        box.style.transform = "translateX(-20)";
-        break;
-      }
-      default:
-        return;
-    }
   };
 
   return (

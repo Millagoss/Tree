@@ -76,10 +76,11 @@ const CategoryComponent: FC<CategoryComponentProps> = ({ data, level = 0 }) => {
                 key={subCategory.id}
               >
                 <CategoryComponent data={subCategory} level={level + 1} />
-                {/* <MinusIcon
+                <MinusIcon
+                  style={{ marginTop: "16px" }}
                   className="add-icon"
                   onClick={() => removeSubcategory(category.id, subCategory.id)}
-                /> */}
+                />
               </div>
             ))}
           </div>
