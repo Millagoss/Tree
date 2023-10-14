@@ -21,7 +21,7 @@ main {
 
 .arrow {
   position: absolute;
-  cursor: "pointer";
+  cursor: pointer;
   height: 40px;
   background: rgb(201, 201, 206);
   display: flex;

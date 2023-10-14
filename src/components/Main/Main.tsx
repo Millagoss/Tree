@@ -55,6 +55,32 @@ const Main = () => {
     }
   };
 
+  const movement = (dir: string) => {
+    const box = document.getElementById("box");
+    if (!box) return;
+
+    switch (dir) {
+      case "up": {
+        box.style.transform = "translateX(-20)";
+        break;
+      }
+      case "down": {
+        box.style.transform = "translateX(20)";
+        break;
+      }
+      case "right": {
+        box.style.transform = "translateX(-20)";
+        break;
+      }
+      case "left": {
+        box.style.transform = "translateX(-20)";
+        break;
+      }
+      default:
+        return;
+    }
+  };
+
   return (
     <main>
       <div className="container" id="main">
@@ -73,16 +99,36 @@ const Main = () => {
           <CategoryComponent />
         </div>
       </div>
-      <div className="up-arrow arrow">
+      <div
+        className="up-arrow arrow"
+        onClick={() =>
+          setPosition((prev: any) => ({ x: prev.x, y: prev.y - 20 }))
+        }
+      >
         <AngleUp />
       </div>
-      <div className="right-arrow arrow">
+      <div
+        className="right-arrow arrow"
+        onClick={() =>
+          setPosition((prev: any) => ({ x: prev.x + 20, y: prev.y }))
+        }
+      >
         <AngleRight />
       </div>
-      <div className="down-arrow arrow">
+      <div
+        className="down-arrow arrow"
+        onClick={() =>
+          setPosition((prev: any) => ({ x: prev.x, y: prev.y + 20 }))
+        }
+      >
         <AngleDown />
       </div>
-      <div className="left-arrow arrow">
+      <div
+        className="left-arrow arrow"
+        onClick={() =>
+          setPosition((prev: any) => ({ x: prev.x - 20, y: prev.y }))
+        }
+      >
         <AngleLeft />
       </div>
     </main>
