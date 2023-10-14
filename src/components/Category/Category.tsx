@@ -58,6 +58,7 @@ const CategoryComponent: FC<CategoryComponentProps> = ({ data, level = 0 }) => {
               className="add-icon"
               onClick={() => addSubcategory(category.id)}
             />
+            <MinusIcon className="add-icon" onClick={() => null} />
           </div>
           <div className="sub-categories">
             {category.subCategories.map((subCategory, index) => (
