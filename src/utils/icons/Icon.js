@@ -5,6 +5,7 @@ import { ReactComponent as AngleUp } from "./angle-up.svg";
 import { ReactComponent as AngleDown } from "./angle-down.svg";
 import { ReactComponent as AngleLeft } from "./angle-left.svg";
 import { ReactComponent as AngleRight } from "./angle-right.svg";
+import { ReactComponent as Add } from "./add-icon.svg";
 
 export {
   MinusIcon,
@@ -14,4 +15,5 @@ export {
   AngleDown,
   AngleLeft,
   AngleRight,
+  Add,
 };

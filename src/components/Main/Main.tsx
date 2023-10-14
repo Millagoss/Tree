@@ -8,6 +8,7 @@ import {
 } from "../../utils/icons/Icon";
 
 import "./main.css";
+import Category from "../Category/Category";
 
 const Main = () => {
   const [position, setPosition] = useState({ x: 700, y: 150 });
@@ -15,6 +16,10 @@ const Main = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
   const handleMouseDown = (e: any) => {
+    const box = document.getElementById("box");
+    if (box) {
+      box.style.transition = `none`;
+    }
     setDragging(true);
     setOffset({
       x: e.clientX - position.x,
@@ -34,10 +39,30 @@ const Main = () => {
     setDragging(false);
   };
 
+  const centerScreen = () => {
+    const mainSection = document.getElementById("main");
+    const box = document.getElementById("box");
+    if (mainSection) {
+      const width = mainSection.offsetWidth / 2;
+      const height = mainSection.offsetHeight;
+
+      if (box) {
+        box.style.transition = `0.3s linear all`;
+        box.style.top = `${height}px`;
+        box.style.left = `${width}px`;
+        setOffset({ x: 0, y: 0 });
+        setPosition({ x: width, y: height });
+        setDragging(false);
+      }
+    }
+  };
+
   return (
     <main>
+      <button onClick={centerScreen}>center</button>
       <div className="container" id="main">
         <div
+          id="box"
           className="box"
           style={{
             left: position.x,
@@ -48,7 +73,7 @@ const Main = () => {
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
         >
-          Drag me!
+          <Category />
         </div>
       </div>
       <div className="up-arrow arrow">

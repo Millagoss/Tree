@@ -26,15 +26,6 @@ const Header: React.FC = () => {
     }
   };
 
-  const centerScreen = () => {
-    const mainSection = document.getElementById("main");
-    if (mainSection) {
-      mainSection.style.display = "flex";
-      mainSection.style.justifyContent = "center";
-      mainSection.style.alignItems = "center";
-    }
-  };
-
   return (
     <header>
       <div className="services">
@@ -44,7 +35,7 @@ const Header: React.FC = () => {
       <div>
         <button>List View</button>
         <div className="icon-container">
-          <CursorIcon className="icon" onClick={centerScreen} />
+          <CursorIcon className="icon" onClick={() => {}} />
         </div>
         <div className="zoom">
           <div className="icon-container" onClick={decreaseZoom}>

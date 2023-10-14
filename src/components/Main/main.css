@@ -2,6 +2,7 @@ main {
   position: relative;
   min-height: calc(100vh - 130px);
   width: 100%;
+  background: var(--grey-50);
 }
 
 .container {
@@ -11,10 +12,11 @@ main {
 }
 
 .box {
-  width: 10rem;
-  height: 3rem;
-  background: red;
-  position: absolute;
+  width: fit-content;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .arrow {
