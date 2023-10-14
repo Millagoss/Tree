@@ -8,7 +8,7 @@ import {
 } from "../../utils/icons/Icon";
 
 import "./main.css";
-import Category from "../Category/Category";
+import CategoryComponent from "../Category/Category";
 
 const Main = () => {
   const [position, setPosition] = useState({ x: 700, y: 150 });
@@ -73,7 +73,7 @@ const Main = () => {
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
         >
-          <Category />
+          <CategoryComponent />
         </div>
       </div>
       <div className="up-arrow arrow">
