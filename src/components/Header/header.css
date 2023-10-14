@@ -14,6 +14,30 @@ header > div {
   gap: 0.5rem;
 }
 
+.custom-dropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  border: none;
+  outline: none;
+  width: auto;
+  font-size: 1.2rem;
+  background: var(--white);
+  color: var(--grey-200);
+  border: none;
+  width: 5.5rem;
+  height: 100%;
+  text-align: center;
+}
+
+.custom-dropdown option {
+  border: none;
+  outline: none;
+  padding: 5px;
+  padding: 0.5rem;
+}
+
 .services h2 {
   color: var(--dark);
   font-weight: 300;
@@ -41,7 +65,7 @@ header > div > button {
   outline: none;
   cursor: pointer;
 }
-.zoom-value {
+/* .zoom-value {
   background: var(--white);
   color: var(--grey-200);
   border: none;
@@ -50,7 +74,7 @@ header > div > button {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .icon-container {
   cursor: pointer;

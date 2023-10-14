@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { MinusIcon, PlusIcon, CursorIcon } from "../../utils/icons/Icon";
 
 import "./header.css";
@@ -28,6 +28,14 @@ const Header: React.FC = () => {
     }
   };
 
+  const handleChange = (event: any) => {
+    setZoom(Number(event.target.value));
+    const mainSection: any = document.getElementById("main");
+    mainSection.style.transform = `scale(${(event.target.value - 25) / 100})`;
+  };
+
+  useEffect(() => {});
+
   return (
     <header>
       <div className="services">
@@ -43,7 +51,19 @@ const Header: React.FC = () => {
           <div className="icon-container" onClick={decreaseZoom}>
             <MinusIcon className="icon" />
           </div>
-          <span className="zoom-value">{zoom}%</span>
+          <span className="zoom-value">
+            {/* <p>{zoom}%</p> */}
+            <select className="custom-dropdown" onChange={handleChange}>
+              <option value={zoom}>{zoom}%</option>
+              <option value={200}>200%</option>
+              <option value={150}>150%</option>
+              <option value={90}>90%</option>
+              <option value={80}>80%</option>
+              <option value={60}>60%</option>
+              <option value={40}>40%</option>
+              <option value={20}>20%</option>
+            </select>
+          </span>
           <div className="icon-container" onClick={increaseZoom}>
             <PlusIcon className="icon" />
           </div>
