@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import {
   AngleUp,
@@ -9,11 +9,11 @@ import {
 
 import "./main.css";
 import CategoryComponent from "../Category/Category";
+import { MyContext } from "../..";
 
 const Main = () => {
-  const [position, setPosition] = useState({ x: 700, y: 150 });
-  const [dragging, setDragging] = useState(false);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const { position, setPosition, dragging, setDragging, offset, setOffset } =
+    useContext(MyContext);
 
   const handleMouseDown = (e: any) => {
     const box = document.getElementById("box");
@@ -43,13 +43,11 @@ const Main = () => {
     const mainSection = document.getElementById("main");
     const box = document.getElementById("box");
     if (mainSection) {
-      const width = mainSection.offsetWidth / 2;
+      const width = mainSection.offsetWidth / 2 - 100;
       const height = mainSection.offsetHeight;
 
       if (box) {
-        box.style.transition = `0.3s linear all`;
-        box.style.top = `${height}px`;
-        box.style.left = `${width}px`;
+        box.style.transition = `0.2s linear all`;
         setOffset({ x: 0, y: 0 });
         setPosition({ x: width, y: height });
         setDragging(false);
@@ -59,7 +57,6 @@ const Main = () => {
 
   return (
     <main>
-      <button onClick={centerScreen}>center</button>
       <div className="container" id="main">
         <div
           id="box"

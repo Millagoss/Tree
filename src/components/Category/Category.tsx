@@ -1,5 +1,4 @@
 import { useState, FC } from "react";
-import CategoryBox from "./Category-box";
 import { MinusIcon, PlusIcon } from "../../utils/icons/Icon";
 
 import "./category.css";
@@ -39,26 +38,34 @@ const CategoryComponent: FC<CategoryComponentProps> = ({ data, level = 0 }) => {
     });
   };
 
-  //   const removeCategory = () => {
-  //     const newCategories = [...categories];
-  //     newCategories.pop();
-  //     setCategories(newCategories);
-  //   };
+  const removeSubcategory = (categoryId: number, subcategoryId: number) => {
+    setCategories((prevCategories) => {
+      const newCategories = [...prevCategories];
+      const category = newCategories.find(
+        (category) => category.id === categoryId
+      );
+      if (category) {
+        category.subCategories = category.subCategories.filter(
+          (subCategory) => subCategory.id !== subcategoryId
+        );
+      }
+      return newCategories;
+    });
+  };
   return (
     <>
       {categories.map((category) => (
-        <div
-          key={category.id}
-          style={{ marginLeft: 20 * level }}
-          className="category-container"
-        >
-          <div className="category-box">
+        <div key={category.id} className="category-container">
+          <div
+            className="category-box"
+            style={{ marginLeft: 40 * level }}
+            id="category-box"
+          >
             <p>{category.name}</p>
             <PlusIcon
               className="add-icon"
               onClick={() => addSubcategory(category.id)}
             />
-            <MinusIcon className="add-icon" onClick={() => null} />
           </div>
           <div className="sub-categories">
             {category.subCategories.map((subCategory, index) => (
@@ -69,6 +76,10 @@ const CategoryComponent: FC<CategoryComponentProps> = ({ data, level = 0 }) => {
                 key={subCategory.id}
               >
                 <CategoryComponent data={subCategory} level={level + 1} />
+                {/* <MinusIcon
+                  className="add-icon"
+                  onClick={() => removeSubcategory(category.id, subCategory.id)}
+                /> */}
               </div>
             ))}
           </div>

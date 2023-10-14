@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { MinusIcon, PlusIcon, CursorIcon } from "../../utils/icons/Icon";
 
 import "./header.css";
+import { MyContext } from "../..";
 
 const Header: React.FC = () => {
   const [zoom, setZoom] = useState<number>(100);
+  const { centerScreen } = useContext(MyContext);
 
   const increaseZoom = () => {
     setZoom((prevZoom: number) => prevZoom + 25);
@@ -35,7 +37,7 @@ const Header: React.FC = () => {
       <div>
         <button>List View</button>
         <div className="icon-container">
-          <CursorIcon className="icon" onClick={() => {}} />
+          <CursorIcon className="icon" onClick={centerScreen} />
         </div>
         <div className="zoom">
           <div className="icon-container" onClick={decreaseZoom}>

@@ -40,7 +40,6 @@ h2 {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .category {
@@ -59,9 +58,20 @@ h2 {
   position: relative;
   display: flex;
   justify-content: space-between;
+  margin-top: 2rem;
 }
-
-/* .sub-category::before {
+/* 
+.sub-category::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 20px;
+  background-color: #000;
+  left: 120px;
+  top: -10px;
+} */
+/* 
+.sub-category-line::before {
   content: "";
   position: absolute;
   width: 1px;
@@ -70,23 +80,13 @@ h2 {
   left: 0;
   top: 20px;
 } */
-
-/* .sub-category-line::before {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 20px;
-  background-color: #000;
-  left: 0;
-  top: 20px;
-}
-
+/* 
 .sub-category-line::after {
   content: "";
   position: absolute;
-  width: 1px;
-  height: 100%;
+  width: 100%;
+  height: 1px;
   background-color: #000;
   left: 0;
-  top: 0;
+  top: -10px;
 } */
